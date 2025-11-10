@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack's Gymnastics | Professional Training in Nairobi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #1d1d1d;
+            --accent: #f1faee;
+            --light-gray: #f8f9fa;
+            --dark-gray: #2b2d42;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--secondary);
+            background-color: var(--accent);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--secondary);
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 4px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 15%;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #c1121f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--secondary);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+            width: 100%;
+        }
+
+        .dropdown-menu a {
+            color: var(--secondary);
+            padding: 12px 20px;
+            display: block;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--light-gray);
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: var(--accent);
+            margin: 5px;
+            transition: var(--transition);
+        }
+
+        /* Page Container */
+        .page-container {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(29, 29, 29, 0.7), rgba(29, 29, 29, 0.7)), url('https://images.unsplash.com/photo-1547949003-9792a18a2601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeUp 1s forwards 0.5s;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeUp 1s forwards 0.8s;
+        }
+
+        .hero-btns {
+            opacity: 0;
+            animation: fadeUp 1s forwards 1.1s;
+        }
+
+        .hero-btns .btn {
+            margin: 0 10px;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 10%;
+            left: 5%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--primary);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            bottom: 15%;
+            right: 10%;
+            animation: float 8s ease-in-out infinite 1s;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            top: 40%;
+            left: 80%;
+            animation: float 7s ease-in-out infinite 0.5s;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-gray);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: rotate(-3deg);
+            transition: var(--transition);
+        }
+
+        .about-img img:hover {
+            transform: rotate(0deg);
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 5px solid var(--primary);
+            border-radius: 10px;
+            top: -20px;
+            left: -20px;
+            z-index: -1;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-text {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--secondary);
+            color: var(--accent);
+        }
+
+        .services .section-title h2 {
+            color: var(--accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--light-gray);
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: none;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 1s;
+        }
+
+        .client-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+        }
+
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .client-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background: var(--primary);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--secondary);
+            color: var(--accent);
+        }
+
+        .gallery .section-title h2 {
+            color: var(--accent);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            height: 250px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(230, 57, 70, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--light-gray);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--accent);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            margin-right: 30px;
+        }
+
+        .footer-col:last-child {
+            margin-right: 0;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Page Content Styles */
+        .page-content {
+            padding: 50px 0;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            background: var(--secondary);
+            color: var(--accent);
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            margin-bottom: 60px;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .pricing-header {
+            margin-bottom: 30px;
+        }
+
+        .pricing-name {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .pricing-period {
+            font-size: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-meta {
+            display: flex;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        .blog-meta span {
+            margin-right: 15px;
+        }
+
+        .blog-meta i {
+            color: var(--primary);
+            margin-right: 5px;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .blog-title a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .blog-title a:hover {
+            color: var(--primary);
+        }
+
+        .blog-excerpt {
+            margin-bottom: 20px;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            background: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--light-gray);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            background: white;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question {
+            background: var(--primary);
+            color: white;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Page Styles */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-wrap: wrap;
+            }
+            
+            .footer-col {
+                flex: 1 0 50%;
+                margin-bottom: 30px;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: 70px;
+                background: var(--secondary);
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: rgba(255, 255, 255, 0.05);
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .stats {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .stat-item {
+                flex: 1 0 45%;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-btns .btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+            
+            .footer-col {
+                flex: 1 0 100%;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo" onclick="showPage('home')">JACK<span>GYMNASTICS</span></a>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" onclick="showPage('about')">About <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="showPage('about')">My Story</a></li>
+                            <li><a href="#" onclick="showPage('about')">Mission</a></li>
+                            <li><a href="#" onclick="showPage('about')">Achievements</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" onclick="showPage('services')">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="showPage('services')">Personal Coaching</a></li>
+                            <li><a href="#" onclick="showPage('services')">Group Classes</a></li>
+                            <li><a href="#" onclick="showPage('services')">Online Training</a></li>
+                            <li><a href="#" onclick="showPage('services')">Pricing</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" onclick="showPage('gallery')">Gallery</a></li>
+                    <li><a href="#" onclick="showPage('testimonials')">Testimonials</a></li>
+                    <li class="dropdown">
+                        <a href="#" onclick="showPage('programs')">Programs <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="showPage('programs')">Beginner</a></li>
+                            <li><a href="#" onclick="showPage('programs')">Intermediate</a></li>
+                            <li><a href="#" onclick="showPage('programs')">Advanced</a></li>
+                            <li><a href="#" onclick="showPage('programs')">Flexibility</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    <li><a href="#" onclick="showPage('booking')" class="btn">Book Session</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1>ACHIEVE YOUR GYMNASTICS GOALS</h1>
+                    <p>Professional gymnastics training in Nairobi, Kenya. Transform your body, build strength, and master incredible skills with personalized coaching.</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn" onclick="showPage('booking')">Book a Session</a>
+                        <a href="#" class="btn btn-outline" onclick="showPage('services')">View Programs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Jack</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1549060279-7e168fce7090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Jack - Professional Gymnast">
+                    </div>
+                    <div class="about-text">
+                        <h2>Professional Gymnast & Coach</h2>
+                        <p>With over 10 years of experience in competitive gymnastics and coaching, Jack has helped hundreds of students achieve their fitness and performance goals. Based in Westlands, Nairobi, he specializes in personalized training programs for all skill levels.</p>
+                        <p>His training philosophy focuses on building strength, flexibility, and confidence through proper technique and consistent practice. Whether you're a beginner or an advanced athlete, Jack will help you reach your full potential.</p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <span class="stat-number">10+</span>
+                                <span class="stat-text">Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-text">Students Trained</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-text">Competitions</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn" style="margin-top: 30px;" onclick="showPage('about')">Learn More About Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Training Services</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Personal Coaching</h3>
+                        <p>One-on-one sessions tailored to your specific goals and skill level. Perfect for focused improvement and personalized attention.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 20px;" onclick="showPage('services')">Learn More</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Group Classes</h3>
+                        <p>Join small group sessions for motivation and community. Learn with others at similar skill levels in a supportive environment.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 20px;" onclick="showPage('services')">Learn More</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>Online Training</h3>
+                        <p>Virtual coaching sessions and customized workout plans. Train from anywhere with personalized guidance and feedback.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top: 20px;" onclick="showPage('services')">Learn More</a>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="#" class="btn" onclick="showPage('services')">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Client Success Stories</h2>
+                </div>
+                <div class="testimonials-container">
+                    <div class="testimonial-slide active">
+                        <div class="client-img">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client">
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Training with Jack completely transformed my approach to fitness. In just 3 months, I've gained flexibility I never thought possible and can now perform moves I only dreamed of before!"</p>
+                        <p class="client-name">- Sarah M., Nairobi</p>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="client-img">
+                            <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Client">
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Jack's online training program helped me continue my gymnastics journey even when I couldn't attend in-person sessions. His feedback is always detailed and motivating."</p>
+                        <p class="client-name">- David K., Mombasa</p>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="client-img">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client">
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"As a complete beginner, I was nervous about starting gymnastics at 30. Jack made me feel comfortable and progressed at my pace. Now I can do a handstand and working on backflips!"</p>
+                        <p class="client-name">- Amina J., Westlands</p>
+                    </div>
+                    <div class="testimonial-nav">
+                        <div class="testimonial-dot active"></div>
+                        <div class="testimonial-dot"></div>
+                        <div class="testimonial-dot"></div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="#" class="btn" onclick="showPage('testimonials')">Read More Testimonials</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="page-container">
+            <div class="page-header">
+                <div class="container">
+                    <h1>About Jack</h1>
+                    <p>Learn more about my journey, philosophy, and achievements in gymnastics</p>
+                </div>
+            </div>
+            
+            <div class="page-content">
+                <div class="container">
+                    <div class="content-section">
+                        <h2>My Story</h2>
+                        <p>My gymnastics journey began at age 8 when I joined a local gymnastics club in Nairobi. From the very first time I stepped onto the mat, I was captivated by the combination of strength, flexibility, and artistry that gymnastics demands.</p>
+                        <p>Over the years, I competed in numerous national and regional competitions, earning several medals and accolades. My competitive career taught me discipline, perseverance, and the importance of proper technique.</p>
+                        <p>After retiring from competitive gymnastics, I transitioned into coaching, realizing my true passion was helping others discover the joy and benefits of this incredible sport. For the past 10 years, I've dedicated myself to developing training programs that are safe, effective, and enjoyable for students of all ages and skill levels.</p>
+                    </div>
+                    
+                    <div class="content-section">
+                        <h2>My Mission</h2>
+                        <p>My mission is to make high-quality gymnastics training accessible to everyone in Nairobi and beyond. I believe that gymnastics isn't just for elite athletes - it's a fantastic way for anyone to build strength, improve flexibility, boost confidence, and have fun.</p>
+                        <p>I'm committed to creating a supportive, inclusive environment where students feel empowered to push their limits while respecting their bodies and individual progress.</p>
+                    </div>
+                    
+                    <div class="content-section">
+                        <h2>Achievements & Certifications</h2>
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h3>Competitive Career</h3>
+                                <p>15+ medals in national competitions, 3 East African Championship appearances, represented Kenya in international competitions</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h3>Certifications</h3>
+                                <p>Level 3 Gymnastics Coach Certification, Certified Personal Trainer, First Aid & CPR Certified, Sports Nutrition Specialist</p>
+                            </div>
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3>Education</h3>
+                                <p>Bachelor's Degree in Sports Science from Kenyatta University, Multiple continuing education courses in coaching methodology</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Page -->
+    <div id="services" class="page">
+        <div class="page-container">
+            <div class="page-header">
+                <div class="container">
+                    <h1>Training Services</h1>
+                    <p>Comprehensive gymnastics training programs for all skill levels</p>
+                </div>
+            </div>
+            
+            <div class="page-content">
+                <div class="container">
+                    <div class="content-section">
+                        <h2>Personal Coaching</h2>
+                        <div class="about-content">
+                            <div class="about-text">
+                                <p>One-on-one training sessions tailored specifically to your goals, abilities, and schedule. Personal coaching is ideal for:</p>
+                                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                                    <li>Rapid skill development</li>
+                                    <li>Competition preparation</li>
+                                    <li>Overcoming specific challenges</li>
+                                    <li>Flexible scheduling</li>
+                                    <li>Individualized feedback and correction</li>
+                                </ul>
+                                <p>Each session includes warm-up, skill development, strength training, and cool-down stretches. I'll create a customized training plan based on your assessment and goals.</p>
+                                <a href="#" class="btn" onclick="showPage('booking')">Book Personal Session</a>
+                            </div>
+                            <div class="about-img">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Personal Coaching">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <h2>Group Classes</h2>
+                        <div class="about-content">
+                            <div class="about-img">
+                                <img src="https://images.unsplash.com/photo-1547996160-81c6c5e57c17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Group Classes">
+                            </div>
+                            <div class="about-text">
+                                <p>Join our small group classes for motivation, community, and fun! Classes are organized by skill level:</p>
+                                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                                    <li><strong>Beginner:</strong> Tuesdays & Thursdays, 5-6 PM</li>
+                                    <li><strong>Intermediate:</strong> Mondays & Wednesdays, 6-7 PM</li>
+                                    <li><strong>Advanced:</strong> Mondays, Wednesdays, Fridays, 7-8:30 PM</li>
+                                    <li><strong>Kids (6-12):</strong> Saturdays, 9-10 AM</li>
+                                    <li><strong>Teens (13-17):</strong> Saturdays, 10:30-11:30 AM</li>
+                                </ul>
+                                <p>All classes include warm-up, skill stations, strength conditioning, and flexibility training. Maximum 8 students per class to ensure individual attention.</p>
+                                <a href="#" class="btn" onclick="showPage('booking')">Join Group Class</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <h2>Online Training</h2>
+                        <div class="about-content">
+                            <div class="about-text">
+                                <p>Can't make it to the studio? Train from anywhere with our comprehensive online programs:</p>
+                                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                                    <li>Live virtual coaching sessions via Zoom</li>
+                                    <li>Customized workout plans</li>
+                                    <li>Form checks with video analysis</li>
+                                    <li>Flexibility and mobility programs</li>
+                                    <li>Nutrition guidance</li>
+                                    <li>24/7 access to training resources</li>
+                                </ul>
+                                <p>Online training is perfect for busy schedules, remote locations, or supplementing in-person training. All you need is a clear space and internet connection.</p>
+                                <a href="#" class="btn" onclick="showPage('booking')">Start Online Training</a>
+                            </div>
+                            <div class="about-img">
+                                <img src="https://images.unsplash.com/photo-1547994777-8d44d47ccab0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Online Training">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <h2>Pricing</h2>
+                        <div class="pricing-grid">
+                            <div class="pricing-card">
+                                <div class="pricing-header">
+                                    <h3 class="pricing-name">Basic</h3>
+                                    <div class="pricing-price">KSh 3,500</div>
+                                    <div class="pricing-period">per month</div>
+                                </div>
+                                <ul class="pricing-features">
+                                    <li>2 Group Classes per week</li>
+                                    <li>Basic skill development</li>
+                                    <li>Access to training facility</li>
+                                    <li>Monthly progress assessment</li>
+                                </ul>
+                                <a href="#" class="btn btn-outline" onclick="showPage('booking')">Get Started</a>
+                            </div>
+                            <div class="pricing-card popular">
+                                <div class="popular-badge">Most Popular</div>
+                                <div class="pricing-header">
+                                    <h3 class="pricing-name">Pro</h3>
+                                    <div class="pricing-price">KSh 7,000</div>
+                                    <div class="pricing-period">per month</div>
+                                </div>
+                                <ul class="pricing-features">
+                                    <li>4 Group Classes per week</li>
+                                    <li>1 Personal Session monthly</li>
+                                    <li>Advanced skill training</li>
+                                    <li>Nutrition guidance</li>
+                                    <li>Flexibility program</li>
+                                </ul>
+                                <a href="#" class="btn" onclick="showPage('booking')">Get Started</a>
+                            </div>
+                            <div class="pricing-card">
+                                <div class="pricing-header">
+                                    <h3 class="pricing-name">Elite</h3>
+                                    <div class="pricing-price">KSh 15,000</div>
+                                    <div class="pricing-period">per month</div>
+                                </div>
+                                <ul class="pricing-features">
+                                    <li>Unlimited Group Classes</li>
+                                    <li>4 Personal Sessions monthly</li>
+                                    <li>Competition preparation</li>
+                                    <li>Customized training plan</li>
+                                    <li>Performance video analysis</li>
+                                </ul>
+                                <a href="#" class="btn btn-outline" onclick="showPage('booking')">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page">
+        <div class="page-container">
+            <div class="page-header">
+                <div class="container">
+                    <h1>Gallery</h1>
+                    <p>Action shots, training moments, and performance highlights</p>
+                </div>
+            </div>
+            
+            <div class="page-content">
+                <div class="container">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1549060279-7e168fce7090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gymnastics Action">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2104&q=80" alt="Gymnastics Training">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1547994777-8d44d47ccab0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gymnastics Performance">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1547996160-81c6c5e57c17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gymnastics Flexibility">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gymnastics Strength">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gymnastics Balance">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1549060279-7e168fce7090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gymnastics Team">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2104&q=80" alt="Gymnastics Coaching">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Page -->
+    <div id="testimonials" class="page">
+        <div class="page-container">
+            <div class="page-header">
+                <div class="container">
+                    <h1>Testimonials</h1>
+                    <p>What my students say about their training experience</p>
+                </div>
+            </div>
+            
+            <div class="page-content">
+                <div class="container">
+                    <div class="testimonials-container">
+                        <div class="testimonial-slide active">
+                            <div class="client-img">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client">
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Training with Jack completely transformed my approach to fitness. In just 3 months, I've gained flexibility I never thought possible and can now perform moves I only dreamed of before!"</p>
+                            <p class="client-name">- Sarah M., Nairobi</p>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="client-img">
+                                <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Client">
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Jack's online training program helped me continue my gymnastics journey even when I couldn't attend in-person sessions. His feedback is always detailed and motivating."</p>
+                            <p class="client-name">- David K., Mombasa</p>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="client-img">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client">
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"As a complete beginner, I was nervous about starting gymnastics at 30. Jack made me feel comfortable and progressed at my pace. Now I can do a handstand and working on backflips!"</p>
+                            <p class="client-name">- Amina J., Westlands</p>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="client-img">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Client">
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"I've trained with several coaches, but Jack's attention to technique and safety is unmatched. He knows exactly how to push you to improve while preventing injuries."</p>
+                            <p class="client-name">- Michael T., Karen</p>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="client-img">
+                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Client">
+                            </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"My daughter has been training with Jack for 2 years and her confidence has skyrocketed. He's amazing with kids - patient, encouraging, and makes learning fun."</p>
+                            <p class="client-name">- Grace W., Lavington</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-nav">
+                        <div class="testimonial-dot active"></div>
+                        <div class="testimonial-dot"></div>
+                        <div class="testimonial-dot"></div>
+                        <div class="testimonial-dot"></div>
+                        <div class="testimonial-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Programs Page -->
+    <div id="programs" class="page">
+        <div class="page-container">
+            <div class="page-header">
+                <div class="container">
+                    <h1>Training Programs</h1>
+                    <p>Structured programs designed for different skill levels and goals</p>
+                </div>
+            </div>
+            
+            <div class="page-content">
+                <div class="container">
+                    <div class="content-section">
+                        <h2>Beginner Program</h2>
+                        <div class="about-content">
+                            <div class="about-text">
+                                <p>Perfect for those new to gymnastics or returning after a long break. This program focuses on building a strong foundation:</p>
+                                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                                    <li>Basic body positions and alignment</li>
+                                    <li>Fundamental rolls and balances</li>
+                                    <li>Introduction to handstands and cartwheels</li>
+                                    <li>Basic strength and flexibility exercises</li>
+                                    <li>Safe falling and landing techniques</li>
+                                </ul>
+                                <p>Duration: 8-12 weeks | Sessions: 2-3 times per week</p>
+                                <a href="#" class="btn" onclick="showPage('booking')">Join Beginner Program</a>
+                            </div>
+                            <div class="about-img">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Beginner Program">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <h2>Intermediate Program</h2>
+                        <div class="about-content">
+                            <div class="about-img">
+                                <img src="https://images.unsplash.com/photo-1547996160-81c6c5e57c17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Intermediate Program">
+                            </div>
+                            <div class="about-text">
+                                <p>For those with basic skills looking to advance to more challenging moves:</p>
+                                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                                    <li>Handstand variations and presses</li>
+                                    <li>Round-offs and back handsprings</li>
+                                    <li>Introduction to flips and twists</li>
+                                    <li>Intermediate strength and conditioning</li>
+                                    <li>Routine development and flow</li>
+                                </ul>
+                                <p>Duration: 12-16 weeks | Sessions: 3-4 times per week</p>
+                                <a href="#" class="btn" onclick="showPage('booking')">Join Intermediate Program</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <h2>Advanced Program</h2>
+                        <div class="about-content">
+                            <div class="about-text">
+                                <p>For experienced gymnasts aiming for competition-level skills:</p>
+                                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                                    <li>Advanced tumbling passes</li>
+                                    <li>Multiple flips and twists</li>
+                                    <li>Specialized apparatus training</li>
+                                    <li>Competition preparation and mental training</li>
+                                    <li>Advanced strength and flexibility</li>
+                                </ul>
+                                <p>Duration: Ongoing | Sessions: 4-6 times per week</p>
+                                <a href="#" class="btn" onclick="showPage('booking')">Join Advanced Program</a>
+                            </div>
+                            <div class="about-img">
+                                <img src="https://images.unsplash.com/photo-1547994777-8d44d47ccab0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Advanced Program">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <h2>Flexibility Program</h2>
+                        <div class="about-content">
+                            <div class="about-img">
+                                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Flexibility Program">
+                            </div>
+                            <div class="about-text">
+                                <p>Specialized program focused exclusively on improving flexibility:</p>
+                                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                                    <li>Splits training (front and middle)</li>
+                                    <li>Back flexibility and bridges</li>
+                                    <li>Shoulder mobility and opening</li>
+                                    <li>Active flexibility development</li>
+                                    <li>Injury prevention through proper stretching</li>
+                                </ul>
+                                <p>Duration: 6-8 weeks | Sessions: 2-3 times per week</p>
+                                <a href="#" class="btn" onclick="showPage('booking')">Join Flexibility Program</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Page -->
+    <div id="blog" class="page">
+        <div class="page-container">
+            <div class="page-header">
+                <div class="container">
+                    <h1>Blog & Tips</h1>
+                    <p>Gymnastics insights, training tips, and fitness advice</p>
+                </div>
+            </div>
+            
+            <div class="page-content">
+                <div class="container">
+                    <div class="blog-grid">
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Flexibility Training">
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar"></i> May 15, 2023</span>
+                                    <span><i class="far fa-clock"></i> 5 min read</span>
+                                </div>
+                                <h3 class="blog-title"><a href="#">5 Essential Stretches for Better Flexibility</a></h3>
+                                <p class="blog-excerpt">Improve your gymnastics performance with these targeted stretches that enhance flexibility and prevent injuries.</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Strength Training">
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar"></i> April 28, 2023</span>
+                                    <span><i class="far fa-clock"></i> 7 min read</span>
+                                </div>
+                                <h3 class="blog-title"><a href="#">Building Core Strength for Gymnastics</a></h3>
+                                <p class="blog-excerpt">Discover the most effective exercises to develop the core strength needed for advanced gymnastics moves.</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Nutrition">
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar"></i> April 10, 2023</span>
+                                    <span><i class="far fa-clock"></i> 6 min read</span>
+                                </div>
+                                <h3 class="blog-title"><a href="#">Nutrition Tips for Gymnasts</a></h3>
+                                <p class="blog-excerpt">Learn how to fuel your body properly for optimal performance and recovery in gymnastics training.</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <img src="https://images.unsplash.com/photo-1547996160-81c6c5e57c17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Injury Prevention">
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar"></i> March 22, 2023</span>
+                                    <span><i class="far fa-clock"></i> 8 min read</span>
+                                </div>
+                                <h3 class="blog-title"><a href="#">Common Gymnastics Injuries and How to Prevent Them</a></h3>
+                                <p class="blog-excerpt">Understand the most common injuries in gymnastics and learn strategies to train safely and prevent setbacks.</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <img src="https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2104&q=80" alt="Mental Training">
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar"></i> March 5, 2023</span>
+                                    <span><i class="far fa-clock"></i> 5 min read</span>
+                                </div>
+                                <h3 class="blog-title"><a href="#">The Mental Side of Gymnastics: Overcoming Fear</a></h3>
+                                <p class="blog-excerpt">Learn techniques to manage fear and build confidence when attempting new and challenging gymnastics skills.</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <img src="https://images.unsplash.com/photo-1547994777-8d44d47ccab0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Progress Tracking">
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar"></i> February 18, 2023</span>
+                                    <span><i class="far fa-clock"></i> 4 min read</span>
+                                </div>
+                                <h3 class="blog-title"><a href="#">How to Track Your Gymnastics Progress Effectively</a></h3>
+                                <p class="blog-excerpt">Discover the best methods for tracking your gymnastics development and staying motivated throughout your journey.</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="page-container">
+            <div class="page-header">
+                <div class="container">
+                    <h1>Contact Me</h1>
+                    <p>Get in touch to start your gymnastics journey</p>
+                </div>
+            </div>
+            
+            <div class="page-content">
+                <div class="container">
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <h3>Contact Information</h3>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <h4>Location</h4>
+                                        <p>Westlands, Nairobi, Kenya</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <h4>Phone</h4>
+                                        <p>+254 712 345 678</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <h4>Email</h4>
+                                        <p>info@jackgymnastics.com</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <h4>Training Hours</h4>
+                                        <p>Monday-Friday: 6 AM - 8 PM<br>Saturday: 8 AM - 4 PM<br>Sunday: Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" class="form-control" placeholder="Your Phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="service">Service Interested In</label>
+                                    <select id="service" class="form-control" required>
+                                        <option value="">Select a Service</option>
+                                        <option value="personal">Personal Coaching</option>
+                                        <option value="group">Group Classes</option>
+                                        <option value="online">Online Training</option>
+                                        <option value="beginner">Beginner Program</option>
+                                        <option value="intermediate">Intermediate Program</option>
+                                        <option value="advanced">Advanced Program</option>
+                                        <option value="flexibility">Flexibility Program</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" class="form-control" placeholder="Tell us about your goals, experience level, and any specific needs..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Page -->
+    <div id="booking" class="page">
+        <div class="page-container">
+            <div class="page-header">
+                <div class="container">
+                    <h1>Book a Session</h1>
+                    <p>Schedule your training session or consultation</p>
+                </div>
+            </div>
+            
+            <div class="page-content">
+                <div class="container">
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h2>Ready to Start Your Gymnastics Journey?</h2>
+                            <p>Booking a session with me is easy. Choose from the options below:</p>
+                            
+                            <div class="services-grid" style="margin-top: 30px;">
+                                <div class="service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-calendar-check"></i>
+                                    </div>
+                                    <h3>Intro Session</h3>
+                                    <p>30-minute introductory session to discuss your goals, assess your current level, and create a personalized training plan.</p>
+                                    <p><strong>Price: KSh 1,000</strong></p>
+                                    <a href="#" class="btn btn-outline" style="margin-top: 20px;">Book Intro Session</a>
+                                </div>
+                                <div class="service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-dumbbell"></i>
+                                    </div>
+                                    <h3>Single Session</h3>
+                                    <p>One full training session (60 minutes) focused on your specific goals and skill development.</p>
+                                    <p><strong>Price: KSh 2,500</strong></p>
+                                    <a href="#" class="btn btn-outline" style="margin-top: 20px;">Book Single Session</a>
+                                </div>
+                                <div class="service-card">
+                                    <div class="service-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <h3>Package Deal</h3>
+                                    <p>Save with a package of 4 sessions. Perfect for consistent training and faster progress.</p>
+                                    <p><strong>Price: KSh 9,000 (Save KSh 1,000)</strong></p>
+                                    <a href="#" class="btn btn-outline" style="margin-top: 20px;">Book Package</a>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 50px;">
+                                <h3>Payment Methods</h3>
+                                <p>I accept various payment methods for your convenience:</p>
+                                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                                    <li>M-Pesa</li>
+                                    <li>Cash</li>
+                                    <li>Bank Transfer</li>
+                                    <li>Credit/Debit Card</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="about-img">
+                            <img src="https://images.unsplash.com/photo-1547996160-81c6c5e57c17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Booking Session">
+                        </div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <h2>Frequently Asked Questions</h2>
+                        <div class="faq-container">
+                            <div class="faq-item active">
+                                <div class="faq-question">
+                                    What should I bring to my first session?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>For your first session, please bring comfortable athletic clothing, a water bottle, and any relevant medical information. We provide all necessary equipment.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    What is your cancellation policy?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>We require 24 hours notice for cancellations. Sessions cancelled with less than 24 hours notice may be subject to a cancellation fee.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    Do you offer refunds?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>We offer refunds for unused sessions in package deals if requested within 7 days of purchase. Single sessions are non-refundable but can be rescheduled.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Jack Gymnastics</h3>
+                    <p>Professional gymnastics training in Nairobi, Kenya. Helping individuals achieve their fitness and performance goals through personalized coaching.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" onclick="showPage('about')">About</a></li>
+                        <li><a href="#" onclick="showPage('services')">Services</a></li>
+                        <li><a href="#" onclick="showPage('gallery')">Gallery</a></li>
+                        <li><a href="#" onclick="showPage('testimonials')">Testimonials</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Training Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('programs')">Beginner Gymnastics</a></li>
+                        <li><a href="#" onclick="showPage('programs')">Intermediate Training</a></li>
+                        <li><a href="#" onclick="showPage('programs')">Advanced Programs</a></li>
+                        <li><a href="#" onclick="showPage('programs')">Flexibility Training</a></li>
+                        <li><a href="#" onclick="showPage('services')">Online Coaching</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on new programs, training tips, and special offers.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Jack Gymnastics. All Rights Reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Close mobile menu if open
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Mobile Dropdown Toggle
+        document.querySelectorAll('.dropdown > a').forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const parent = this.parentElement;
+                    parent.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Testimonial Slider
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        let currentSlide = 0;
+        
+        function showSlide(n) {
+            testimonialSlides.forEach(slide => slide.classList.remove('active'));
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + testimonialSlides.length) % testimonialSlides.length;
+            
+            testimonialSlides[currentSlide].classList.add('active');
+            testimonialDots[currentSlide].classList.add('active');
+        }
+        
+        // Auto-advance testimonials
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Dot click events
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Scroll animations
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(29, 29, 29, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--secondary)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you within 24 hours.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
